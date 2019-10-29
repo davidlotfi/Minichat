@@ -1,5 +1,17 @@
 <?php
     session_start();
+
+    try{
+           $bdd=new PDO('mysql:host=localhost;dbname=minichat','root','');
+
+         }catch(Exception $e){
+
+           die($e->getmessage());
+        }
+
+        // Récupération des 5 derniers messages
+       $reponse = $bdd->query('SELECT pseudo, message FROM  chat ORDER BY ID DESC LIMIT 0, 5');
+
   ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -8,6 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="web-fonts-with-css/css/fontawesome-all.min.css">
 
     <title>Minichat</title>
@@ -48,7 +61,7 @@
   </style>
   <body>
     <nav class="navbar navbar-inverse bg-primary navbar-toggleable-sm">
-      <a href="#" class="navbar-brand">Mini Chat</a>
+      <a href="#" class="navbar-brand"><?php echo $_SESSION['pseudo']; ?></a>
       <div class="navbar-nav">
         <img src="reddit.png" alt="">
       </div><!-- navbar-nav -->
@@ -56,25 +69,38 @@
 
     <div class="container">
               <br>
+                <div class="col-7">
+                  <img src="hell.jpg" alt="">
+                </div>    <br>
           <form action="home_post.php" method="post">
-                <div class="input-group">
-									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+            <div class="col-7">
+              <div class="input-group">
+                 <textarea class="form-control type_msg"  name="message" placeholder="Type your message..."></textarea>
+                 <button type="submit"class="btn btn-primary" name="button"><i class="fas fa-location-arrow"></i></button>
+                </div>
+            </div>
 
-                    <textarea class="form-control type_msg"  name="message" placeholder="Type your message..."></textarea>
-
-									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
-	               </div>
           </form>
 
+  <div class="col-7">
+    <?php
+    while ($donnees = $reponse->fetch())
+   {
+     ?>
      <div class="messagechat">
             <img src="https://ptetutorials.com/images/user-profile.png" alt="Avatar" style="width:40%;">
-            <h5> <?php echo $_SESSION['pseudo'];?></h5>
-            <p>Hello. How are you today?</p>
+            <h5> <?php echo $donnees['pseudo'];?></h5>
+            <p> <?php echo $donnees['message']; ?></p>
             <span class="time">11:00</span>
       </div>
-
-
-
+      <?php
+    }
+        $reponse->closeCursor();
+       ?>
     </div>
+  </div>
+
+
+  <footer class="footer"><a href="https://boukernineabdellatif.netlify.com"> <span class="spann">by Boukernine abdellatif</span></a>  </footer>
   </body>
 </html>

@@ -15,6 +15,7 @@ if (isset($_POST['commit'])) {
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/github.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Sign up</title>
   </head>
    <style media="screen">
@@ -31,23 +32,7 @@ if (isset($_POST['commit'])) {
       border-top: 1px solid #d8dee2;
       display: block;
     }
-  .footer {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    overflow: visible;
-    z-index: 99;
-    clear: both;
-    background-color: rgba(0, 0, 0, 0.6);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000',endColorstr='#99000000');
-}
-     .spann{
-       color: #fff;
-       font-size: 12px;
-       line-height: 30px;
-       float:right;
-       margin-right: 12px;
-     }
+
 
    </style>
   <body>
@@ -68,6 +53,6 @@ if (isset($_POST['commit'])) {
 
 
 
-     <footer class="footer"> <span class="spann">by Boukernine abdellatif </span> </footer>
+     <footer class="footer"> <a href="https://boukernineabdellatif.netlify.com"> <span class="spann">by Boukernine abdellatif</span></a></footer>
   </body>
 </html>
