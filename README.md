@@ -3,7 +3,7 @@
 
 ![image](https://github.com/davidlotfi/Minichat/blob/master/table.png)
 
-[Voir Demo](http://boukerninechat.epizy.com)
+[Voir Le Demo](http://boukerninechat.epizy.com)
 
 ![image](https://github.com/davidlotfi/Minichat/blob/master/img.png)
 
