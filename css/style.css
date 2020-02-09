@@ -1,0 +1,17 @@
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  overflow: visible;
+  z-index: 99;
+  clear: both;
+  background-color: rgba(0, 0, 0, 0.6);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000',endColorstr='#99000000');
+}
+   .spann{
+     color: #fff;
+     font-size: 12px;
+     line-height: 30px;
+     float:right;
+     margin-right: 12px;
+   }
